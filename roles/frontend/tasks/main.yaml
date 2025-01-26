@@ -19,23 +19,23 @@
 #     path: /usr/share/nginx/html
 #     state: directory
 
-- name: do something
+- name: common tasks
   include_role:
     name: common
     
 
-- name: Download source code from a url
-  ansible.builtin.get_url:
-    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-    dest: /tmp/frontend.zip
+# - name: Download source code from a url
+#   ansible.builtin.get_url:
+#     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+#     dest: /tmp/frontend.zip
 
 
 
-- name: Unzip source code
-  ansible.builtin.unarchive:
-    src: /tmp/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
+# - name: Unzip source code
+#   ansible.builtin.unarchive:
+#     src: /tmp/frontend.zip
+#     dest: /usr/share/nginx/html
+#     remote_src: yes
 
 - name: Nginx Reverse-proxy configuration
   ansible.builtin.template:

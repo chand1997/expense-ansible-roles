@@ -1,2 +1,6 @@
 backend_host: 172.31.87.176
 path: /usr/share/nginx/html
+url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+dest: /tmp/frontend.zip
+src: /tmp/frontend.zip
+unarchive_dest: /usr/share/nginx/html

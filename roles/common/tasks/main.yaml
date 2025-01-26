@@ -7,3 +7,14 @@
   ansible.builtin.file:
     path: "{{ path }}"
     state: directory
+
+- name: Download source code from a url
+  ansible.builtin.get_url:
+    url: "{{ url }}"
+    dest: "{{ dest }}"
+
+- name: Unzip source code
+  ansible.builtin.unarchive:
+    src: "{{ src }}"
+    dest: "{{ unarchive_dest }}"
+    remote_src: yes

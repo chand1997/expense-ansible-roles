@@ -1,3 +1,8 @@
 sql_host: 172.31.90.250
 sql_user: root
 sql_password: ExpenseApp@1
+path: /app
+url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+dest: /tmp/backend.zip
+src: /tmp/backend.zip
+unarchive_dest: /app

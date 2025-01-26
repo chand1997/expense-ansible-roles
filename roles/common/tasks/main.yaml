@@ -1,19 +1,27 @@
 - name: Remove directory
+  tags:
+    - deployment
   ansible.builtin.file:
     path: "{{ path }}"
     state: absent
 
 - name: Create directory
+  tags:
+    - deployment
   ansible.builtin.file:
     path: "{{ path }}"
     state: directory
 
 - name: Download source code from a url
+  tags:
+    - deployment
   ansible.builtin.get_url:
     url: "{{ url }}"
     dest: "{{ dest }}"
 
 - name: Unzip source code
+  tags:
+    - deployment
   ansible.builtin.unarchive:
     src: "{{ src }}"
     dest: "{{ unarchive_dest }}"

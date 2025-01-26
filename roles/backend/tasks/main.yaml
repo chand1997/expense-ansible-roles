@@ -36,10 +36,12 @@
 #     src: /tmp/backend.zip
 #     dest: /app
 #     remote_src: yes
-    # By default unarchive module searches src file("/tmp/backend.zip") in local server(ansible-server)
-    # After giving "remote_src: yes", unarchive module searches src in remote server(backend-server)
+# By default unarchive module searches src file("/tmp/backend.zip") in local server(ansible-server)
+# After giving "remote_src: yes", unarchive module searches src in remote server(backend-server)
 
 - name: Install packages based on package.json.
+  tags:
+    - deployment
   community.general.npm:
     path: /app
 

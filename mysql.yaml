@@ -1,5 +1,4 @@
 - name: Setting-up databse
-  hosts: mysql
-  become: yes
+
   roles:
-  - mysql
+    - mysql

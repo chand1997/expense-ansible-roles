@@ -46,6 +46,7 @@
 #     dest: /etc/systemd/system/backend.service
 
 # if backend.service is a non-static file, we should use below code.
+# it searches for templates folder in which files are in j2 formate where dynamic variables can be used.
 - name: Creating backend service.
   ansible.builtin.template:
     src: backend.service.j2

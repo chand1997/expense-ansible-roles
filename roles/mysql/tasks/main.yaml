@@ -21,7 +21,7 @@
 - name: Check whether password is set or not
   community.mysql.mysql_info:
     login_user: root
-    login_password: "{{my_root_password}}"
+    login_password: "{{ lookup('amazon.aws.aws_ssm', '/expense/mysql/my_root_password', decrypt=True ) }}"
     login_host: mysql.chandev.site
   register: db_info
   ignore_errors: true
@@ -31,5 +31,5 @@
     msg: "{{ db_info }}"
 
 - name: Setting password
-  ansible.builtin.command: mysql_secure_installation --set-root-pass "{{my_root_password}}"
+  ansible.builtin.command: mysql_secure_installation --set-root-pass "{{ lookup('amazon.aws.aws_ssm', '/expense/mysql/my_root_password', decrypt=True ) }}"
   when: db_info.failed is true
